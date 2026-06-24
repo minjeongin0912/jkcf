@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>活動内容 | 日韓文化交流基金</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- ACTIVITIES CSS -->
+  <link rel="stylesheet" href="css/activities.css">
+</head>
+<body>
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <h1 class="site-header__logo">
+        <a href="./index.html" aria-label="日韓文化交流基金">
+          <img src="images/logo_header_pc.png" alt="日韓文化交流基金">
+        </a>
+      </h1>
+
+      <nav class="site-nav" id="site-navigation" aria-label="グローバルナビゲーション">
+        <div class="mobile-nav__header">
+          <p class="mobile-nav__title">MENU</p>
+          <div class="mobile-nav__controls">
+            <button class="mobile-nav__close" type="button" aria-label="メニューを閉じる">
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <form class="mobile-nav__search" action="./news.html" role="search">
+          <input id="mobile-search" name="keyword" type="search" placeholder=" " aria-label="キーワードで検索">
+          <label class="mobile-nav__search-label" for="mobile-search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <span class="mobile-nav__search-text">キーワードで検索</span>
+          </label>
+        </form>
+
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a class="site-nav__link" href="./about.html" aria-haspopup="true" aria-expanded="false">
+              <i class="site-nav__icon fa-solid fa-building-columns" aria-hidden="true"></i>
+              <span data-ja="基金について" data-ko="재단 소개">基金について</span>
+            </a>
+            <button class="site-nav__toggle" type="button" aria-label="基金についての下層メニューを開閉" aria-expanded="true">
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <ul class="site-nav__dropdown" aria-hidden="true">
+              <li><a href="./about.html#greeting" data-ja="ご挨拶" data-ko="인사말">ご挨拶</a></li>
+              <li><a href="./about.html#history" data-ja="沿革" data-ko="연혁">沿革</a></li>
+              <li><a href="./about.html#member" data-ja="役員" data-ko="임원">役員</a></li>
+              <li><a href="./about.html#disclosure" data-ja="情報公開" data-ko="정보 공개">情報公開</a></li>
+            </ul>
+          </li>
+          <li class="site-nav__item site-nav__item--has-dropdown site-nav__item--current">
+            <a class="site-nav__link" href="./activities.html" aria-haspopup="true" aria-expanded="false">
+              <i class="site-nav__icon fa-solid fa-people-group" aria-hidden="true"></i>
+              <span data-ja="活動内容" data-ko="활동 내용">活動内容</span>
+            </a>
+            <button class="site-nav__toggle" type="button" aria-label="活動内容の下層メニューを開閉" aria-expanded="false">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            <ul class="site-nav__dropdown" aria-hidden="true">
+              <li><a href="./activities.html#youth" data-ja="青少年交流" data-ko="청소년 교류">青少年交流</a></li>
+              <li><a href="./activities.html#fellowship" data-ja="フェローシップ" data-ko="펠로십">フェローシップ</a></li>
+              <li><a href="./activities.html#grant" data-ja="助成（交流支援）" data-ko="조성(교류 지원)">助成（交流支援）</a></li>
+              <li><a href="./activities.html#conference" data-ja="学術会議" data-ko="학술회의">学術会議</a></li>
+              <li><a href="./publication.html" data-ja="出版・刊行物" data-ko="출판·간행물">出版・刊行物</a></li>
+              <li><a href="./activities.html#lecture" data-ja="講演会一覧" data-ko="강연회 목록">講演会一覧</a></li>
+              <li><a href="./activities.html#award" data-ja="表彰制度" data-ko="표창 제도">表彰制度</a></li>
+              <li><a href="./activities.html#award" data-ja="日韓文化交流基金賞" data-ko="일한문화교류기금상">日韓文化交流基金賞</a></li>
+            </ul>
+          </li>
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a class="site-nav__link" href="./stories.html" aria-haspopup="true" aria-expanded="false">
+              <i class="site-nav__icon fa-solid fa-cube" aria-hidden="true"></i>
+              <span data-ja="交流事例" data-ko="교류 사례">交流事例</span>
+            </a>
+            <button class="site-nav__toggle" type="button" aria-label="交流事例の下層メニューを開閉" aria-expanded="false">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            <ul class="site-nav__dropdown" aria-hidden="true">
+              <li><a href="./stories.html#school" data-ja="学校交流" data-ko="학교 교류">学校交流</a></li>
+              <li><a href="./stories.html#citizen" data-ja="市民交流" data-ko="시민 교류">市民交流</a></li>
+              <li><a href="./stories.html#episodes" data-ja="その他エピソードなど" data-ko="기타 에피소드">その他エピソードなど</a></li>
+            </ul>
+          </li>
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a class="site-nav__link" href="./news.html" aria-haspopup="true" aria-expanded="false">
+              <i class="site-nav__icon fa-regular fa-calendar-days" aria-hidden="true"></i>
+              <span data-ja="お知らせ" data-ko="소식">お知らせ</span>
+            </a>
+            <button class="site-nav__toggle" type="button" aria-label="お知らせの下層メニューを開閉" aria-expanded="false">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            <ul class="site-nav__dropdown" aria-hidden="true">
+              <li><a href="./news.html#youth-program" data-ja="青少年交流事業" data-ko="청소년 교류 사업">青少年交流事業</a></li>
+              <li><a href="./news.html#news" data-ja="ニュース" data-ko="뉴스">ニュース</a></li>
+              <li><a href="./news.html#recruitment" data-ja="募集情報" data-ko="모집 정보">募集情報</a></li>
+              <li><a href="./news.html#media" data-ja="報道実績" data-ko="보도 실적">報道実績</a></li>
+            </ul>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="./membership.html">
+              <i class="site-nav__icon fa-solid fa-display" aria-hidden="true"></i>
+              <span data-ja="会員制度について" data-ko="회원제도 안내">会員制度について</span>
+              <i class="site-nav__arrow fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+
+        <div class="mobile-nav__actions">
+          <a class="mobile-nav__action" href="./news.html">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            <span>お問合せ</span>
+          </a>
+        </div>
+
+        <div class="mobile-nav__brand">
+          <img src="images/logo_header_pc.png" alt="日韓文化交流基金">
+        </div>
+
+        <div class="mobile-nav__footer">
+          <div class="mobile-nav__social">
+            <a href="./index.html" aria-label="Website">
+              <i class="fa-solid fa-earth-asia" aria-hidden="true"></i>
+            </a>
+            <button class="mobile-nav__share" type="button" aria-label="Share">
+              <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+            </button>
+            <a href="./news.html" aria-label="RSS">
+              <i class="fa-solid fa-rss" aria-hidden="true"></i>
+            </a>
+          </div>
+          <p class="mobile-nav__copy">&copy; JKCF 2024</p>
+        </div>
+      </nav>
+
+      <div class="language-switcher">
+        <button class="language-switcher__button" type="button" aria-expanded="false" aria-controls="language-menu">
+          <svg class="language-switcher__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18"></path>
+            <path d="M12 3c2.2 2.4 3.3 5.4 3.3 9s-1.1 6.6-3.3 9"></path>
+            <path d="M12 3c-2.2 2.4-3.3 5.4-3.3 9s1.1 6.6 3.3 9"></path>
+          </svg>
+          <span class="language-switcher__current">日本語</span>
+          <svg class="language-switcher__arrow" viewBox="0 0 12 8" aria-hidden="true" focusable="false">
+            <path d="M1 1.5 6 6.5l5-5"></path>
+          </svg>
+        </button>
+        <ul class="language-switcher__menu" id="language-menu" aria-hidden="true">
+          <li><button type="button" data-lang-option="ja">日本語</button></li>
+          <li><button type="button" data-lang-option="ko">한국어</button></li>
+        </ul>
+      </div>
+
+      <button class="site-header__menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== SUB VISUAL ==================== -->
+  <section class="activities-visual" aria-labelledby="activities-title">
+    <div class="activities-visual__inner">
+      <nav class="breadcrumb" aria-label="現在位置">
+        <a href="./index.html" data-ja="トップ" data-ko="메인">トップ</a>
+        <span aria-hidden="true">/</span>
+        <span data-ja="活動内容" data-ko="활동 내용">活動内容</span>
+      </nav>
+      <p class="activities-visual__label">OUR ACTIVITIES</p>
+      <h1 class="activities-visual__title" id="activities-title" data-ja="活動内容" data-ko="활동 내용">活動内容</h1>
+    </div>
+  </section>
+
+  <!-- ==================== CONTENTS ==================== -->
+  <main class="activities-page">
+    <section class="activities-programs" aria-labelledby="activities-programs-title">
+      <div class="activities-programs__inner">
+        <div class="activities-programs__header">
+          <p class="activities-section-label">PROGRAMS</p>
+          <h2 class="activities-programs__title" id="activities-programs-title" data-ja="主な活動" data-ko="주요 활동">主な活動</h2>
+        </div>
+
+        <div class="activity-card-grid">
+          <article class="activity-program-card" id="youth">
+            <a class="activity-program-card__link" href="#youth">
+              <img class="activity-program-card__image" src="images/활동내용/list-thumb-youth@2x-1000x484.jpg" alt="青少年交流">
+              <div class="activity-program-card__body">
+                <p class="activity-program-card__number">01</p>
+                <h3 data-ja="青少年交流" data-ko="청소년 교류">青少年交流</h3>
+                <p data-ja="次世代を担う日韓の青少年を対象に、相手国の社会や文化にふれる機会をつくります。" data-ko="다음 세대를 이끌 한일 청소년을 대상으로 상대국의 사회와 문화를 접할 기회를 만듭니다.">次世代を担う日韓の青少年を対象に、相手国の社会や文化にふれる機会をつくります。</p>
+                <span data-ja="詳しく見る" data-ko="자세히 보기">詳しく見る</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="activity-program-card" id="fellowship">
+            <a class="activity-program-card__link" href="#fellowship">
+              <img class="activity-program-card__image" src="images/활동내용/n_facebookからブース取材＿キャプションを付けて＿トリミングも-1000x484.jpg" alt="フェローシップ">
+              <div class="activity-program-card__body">
+                <p class="activity-program-card__number">02</p>
+                <h3 data-ja="フェローシップ" data-ko="펠로십">フェローシップ</h3>
+                <p data-ja="日韓の研究者や有識者の調査・研究活動を支援し、知的交流の基盤を広げます。" data-ko="한일 연구자와 전문가의 조사·연구 활동을 지원하고 지적 교류의 기반을 넓힙니다.">日韓の研究者や有識者の調査・研究活動を支援し、知的交流の基盤を広げます。</p>
+                <span data-ja="詳しく見る" data-ko="자세히 보기">詳しく見る</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="activity-program-card" id="grant">
+            <a class="activity-program-card__link" href="#grant">
+              <img class="activity-program-card__image" src="images/활동내용/6_0505_南浦洞光復路3_t2-1000x484.jpg" alt="助成（交流支援）">
+              <div class="activity-program-card__body">
+                <p class="activity-program-card__number">03</p>
+                <h3 data-ja="助成（交流支援）" data-ko="조성(교류 지원)">助成（交流支援）</h3>
+                <p data-ja="市民レベルの交流事業や学術・文化交流事業を支援し、日韓交流の広がりを後押しします。" data-ko="시민 차원의 교류 사업과 학술·문화 교류 사업을 지원해 한일 교류의 확장을 돕습니다.">市民レベルの交流事業や学術・文化交流事業を支援し、日韓交流の広がりを後押しします。</p>
+                <span data-ja="詳しく見る" data-ko="자세히 보기">詳しく見る</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="activity-program-card" id="conference">
+            <a class="activity-program-card__link" href="#conference">
+              <img class="activity-program-card__image" src="images/활동내용/会議＿日韓新時代共同研究第一期-1000x484.jpg" alt="学術会議">
+              <div class="activity-program-card__body">
+                <p class="activity-program-card__number">04</p>
+                <h3 data-ja="学術会議" data-ko="학술회의">学術会議</h3>
+                <p data-ja="両国の専門家が対話する場を設け、日韓関係と文化交流に関する議論を深めます。" data-ko="양국 전문가가 대화하는 장을 마련해 한일 관계와 문화 교류에 관한 논의를 깊게 합니다.">両国の専門家が対話する場を設け、日韓関係と文化交流に関する議論を深めます。</p>
+                <span data-ja="詳しく見る" data-ko="자세히 보기">詳しく見る</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="activity-program-card" id="lecture">
+            <a class="activity-program-card__link" href="#lecture">
+              <img class="activity-program-card__image" src="images/활동내용/list-thumb-lecture@2x-1000x484.jpg" alt="講演会一覧">
+              <div class="activity-program-card__body">
+                <p class="activity-program-card__number">05</p>
+                <h3 data-ja="講演会一覧" data-ko="강연회 목록">講演会一覧</h3>
+                <p data-ja="日韓関係や文化をテーマに、多様な分野の専門家による講演会を開催しています。" data-ko="한일 관계와 문화를 주제로 다양한 분야의 전문가 강연회를 개최합니다.">日韓関係や文化をテーマに、多様な分野の専門家による講演会を開催しています。</p>
+                <span data-ja="詳しく見る" data-ko="자세히 보기">詳しく見る</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="activity-program-card" id="publication-card">
+            <a class="activity-program-card__link" href="./publication.html">
+              <img class="activity-program-card__image" src="images/활동내용/出版刊行物紹介＿日韓共同研究叢書-1000x484.jpg" alt="出版・刊行物">
+              <div class="activity-program-card__body">
+                <p class="activity-program-card__number">06</p>
+                <h3 data-ja="出版・刊行物" data-ko="출판·간행물">出版・刊行物</h3>
+                <p data-ja="共同研究や交流事業の成果を刊行物としてまとめ、日韓相互理解の資料として発信します。" data-ko="공동 연구와 교류 사업의 성과를 간행물로 정리해 한일 상호 이해의 자료로 발신합니다.">共同研究や交流事業の成果を刊行物としてまとめ、日韓相互理解の資料として発信します。</p>
+                <span data-ja="詳しく見る" data-ko="자세히 보기">詳しく見る</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="activity-program-card" id="award">
+            <a class="activity-program-card__link" href="#award">
+              <img class="activity-program-card__image" src="images/활동내용/表彰事業　紹介用画像　オリジナル2-1000-484.jpg" alt="表彰制度">
+              <div class="activity-program-card__body">
+                <p class="activity-program-card__number">07</p>
+                <h3 data-ja="表彰制度・日韓文化交流基金賞" data-ko="표창 제도·일한문화교류기금상">表彰制度・日韓文化交流基金賞</h3>
+                <p data-ja="日韓文化交流に貢献した個人・団体の活動を顕彰し、交流の輪を広げます。" data-ko="한일 문화교류에 기여한 개인과 단체의 활동을 기리고 교류의 폭을 넓힙니다.">日韓文化交流に貢献した個人・団体の活動を顕彰し、交流の輪を広げます。</p>
+                <span data-ja="詳しく見る" data-ko="자세히 보기">詳しく見る</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER 01 ==================== -->
+  <footer class="footer-primary" aria-labelledby="footer-primary-title">
+    <div class="footer-primary__brand">
+      <a class="footer-primary__logo" href="./index.html" aria-label="日韓文化交流基金">
+        <img src="images/ft_img1.png" alt="公益財団法人 日韓文化交流基金">
+      </a>
+    </div>
+
+    <div class="footer-primary__content">
+      <div class="footer-primary__intro">
+        <h2 class="footer-primary__title" id="footer-primary-title" data-ja="日韓文化&#10;交流基金" data-ko="일한문화&#10;교류기금">日韓文化<br>交流基金</h2>
+        <p class="footer-primary__lead" data-ja="文化を通じて、日韓の理解と&#10;交流をつないでいく。" data-ko="문화를 통해 한일의 이해와&#10;교류를 이어갑니다.">文化を通じて、日韓の理解と<br>交流をつないでいく。</p>
+      </div>
+
+      <nav class="footer-primary__nav" aria-label="フッターナビゲーション">
+        <div class="footer-primary__group">
+          <h3 class="footer-primary__heading" data-ja="基金について" data-ko="기금 소개">基金について</h3>
+          <ul class="footer-primary__list">
+            <li><a href="./about.html#greeting" data-ja="ご挨拶" data-ko="인사말">ご挨拶</a></li>
+            <li><a href="./about.html#history" data-ja="沿革" data-ko="연혁">沿革</a></li>
+            <li><a href="./about.html#member" data-ja="役員" data-ko="임원">役員</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-primary__group footer-primary__group--wide">
+          <h3 class="footer-primary__heading" data-ja="活動内容" data-ko="활동 내용">活動内容</h3>
+          <ul class="footer-primary__list">
+            <li><a href="./activities.html#youth" data-ja="青少年交流" data-ko="청소년 교류">青少年交流</a></li>
+            <li><a href="./activities.html#fellowship" data-ja="フェローシップ" data-ko="펠로십">フェローシップ</a></li>
+            <li><a href="./activities.html#grant" data-ja="助成（交流支援）" data-ko="조성(교류 지원)">助成（交流支援）</a></li>
+            <li><a href="./activities.html#conference" data-ja="学術会議" data-ko="학술회의">学術会議</a></li>
+            <li><a href="./publication.html" data-ja="出版・刊行物" data-ko="출판・간행물">出版・刊行物</a></li>
+            <li><a href="./activities.html#lecture" data-ja="講演会一覧" data-ko="강연회 목록">講演会一覧</a></li>
+            <li><a href="./activities.html#award" data-ja="表彰制度" data-ko="표창 제도">表彰制度</a></li>
+            <li><a href="./activities.html#award" data-ja="日韓文化交流基金賞" data-ko="일한문화교류기금상">日韓文化交流基金賞</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-primary__group">
+          <h3 class="footer-primary__heading" data-ja="交流事例" data-ko="교류 사례">交流事例</h3>
+          <ul class="footer-primary__list">
+            <li><a href="./stories.html#school" data-ja="学校交流" data-ko="학교 교류">学校交流</a></li>
+            <li><a href="./stories.html#citizen" data-ja="市民交流" data-ko="시민 교류">市民交流</a></li>
+            <li><a href="./stories.html#episodes" data-ja="その他エピソードなど" data-ko="기타 에피소드 등">その他エピソードなど</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-primary__group">
+          <h3 class="footer-primary__heading" data-ja="ニュース" data-ko="소식">ニュース</h3>
+          <ul class="footer-primary__list">
+            <li><a href="./news.html#youth-program" data-ja="青少年交流事業" data-ko="청소년 교류 사업">青少年交流事業</a></li>
+            <li><a href="./news.html#recruitment" data-ja="募集情報" data-ko="모집 정보">募集情報</a></li>
+            <li><a href="./news.html#media" data-ja="報道実績" data-ko="보도 실적">報道実績</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-primary__group">
+          <h3 class="footer-primary__heading" data-ja="会員制度について" data-ko="회원제도 안내">会員制度について</h3>
+          <ul class="footer-primary__list">
+            <li><a href="./membership.html" data-ja="会員制度のご案内" data-ko="회원제도 안내">会員制度のご案内</a></li>
+            <li><a href="./news.html#news" data-ja="日韓文化交流基金 NEWS" data-ko="일한문화교류기금 NEWS">日韓文化交流基金 NEWS</a></li>
+            <li><a href="./membership.html#youtube" data-ja="Youtubeチャンネル" data-ko="Youtube 채널">Youtubeチャンネル</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ==================== FOOTER 02 ==================== -->
+  <div class="footer-secondary">
+    <div class="footer-secondary__inner">
+      <div class="footer-secondary__info">
+        <p>〒101-0061 東京都千代田区神田三崎町2-21-2 ユニゾ水道橋ビル5階</p>
+        <p>TEL.03-6261-6790</p>
+        <p>&copy; THE JAPAN-KOREA CULTURAL FOUNDATION All right reserved.</p>
+      </div>
+
+      <ul class="footer-secondary__social" aria-label="ソーシャルメディア">
+        <li><span aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span></li>
+        <li><span aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></span></li>
+        <li><span aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span></li>
+        <li><span aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span></li>
+      </ul>
+
+      <div class="footer-secondary__links" aria-label="フッターリンク">
+        <p>
+          <span>お問い合わせ</span>
+          <span>アクセス</span>
+          <span>サイトマップ</span>
+          <span>リンク</span>
+          <span>プライバシーポリシー</span>
+        </p>
+        <p>ソーシャルメディアポリシー</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBPAGE JAVASCRIPT -->
+  <script src="js/subpage.js"></script>
+</body>
+</html>
