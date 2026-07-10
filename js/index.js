@@ -174,7 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const languageMenu = document.querySelector(".language-switcher__menu");
   const languageCurrent = document.querySelector(".language-switcher__current");
   const languageOptions = document.querySelectorAll("[data-lang-option]");
-  const translatableItems = document.querySelectorAll("[data-ja][data-ko]");
   const storageKey = "jkcf-language";
 
   const availableLanguages = ["ja", "ko"];
@@ -194,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.lang = currentLanguage;
 
-    translatableItems.forEach((item) => {
+    document.querySelectorAll("[data-ja][data-ko]").forEach((item) => {
       const text = item.dataset[currentLanguage];
 
       if (text) {
@@ -210,6 +209,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }));
       }
     });
+
+    document.querySelectorAll("[data-aria-ja][data-aria-ko]").forEach((item) => {
+      const ariaLabel = item.dataset[`aria${currentLanguage === "ko" ? "Ko" : "Ja"}`];
+
+      if (ariaLabel) {
+        item.setAttribute("aria-label", ariaLabel);
+      }
+    });
+
+    const footerSecondary = document.querySelector("[data-footer-secondary]");
+
+    if (footerSecondary) {
+      footerSecondary.querySelectorAll("[data-ja][data-ko]").forEach((item) => {
+        const footerText = item.dataset[currentLanguage];
+
+        if (footerText) {
+          item.textContent = footerText;
+        }
+      });
+    }
 
     if (languageCurrent) {
       languageCurrent.textContent = currentLanguage === "ko" ? "한국어" : "日本語";
@@ -324,11 +343,81 @@ document.addEventListener("DOMContentLoaded", () => {
   showHeroSlide(0);
   startHeroAutoPlay();
 
+// ==================== SECTION 01 ====================
+  const activitiesSection = document.querySelector(".activities-section");
+
+  if (activitiesSection) {
+    if ("IntersectionObserver" in window) {
+      const activitiesObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.18,
+      });
+
+      activitiesObserver.observe(activitiesSection);
+    } else {
+      activitiesSection.classList.add("is-visible");
+    }
+  }
+
+// ==================== SECTION 02 ====================
+  const newsSection = document.querySelector(".news-section");
+
+  if (newsSection) {
+    if ("IntersectionObserver" in window) {
+      const newsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.15,
+      });
+
+      newsObserver.observe(newsSection);
+    } else {
+      newsSection.classList.add("is-visible");
+    }
+  }
+
 // ==================== SECTION 03 ====================
+  const reportSection = document.querySelector(".report-section");
   const reportTrack = document.querySelector("[data-report-track]");
   const reportDots = document.querySelectorAll("[data-report-dot]");
   const reportPrev = document.querySelector("[data-report-prev]");
   const reportNext = document.querySelector("[data-report-next]");
+
+  if (reportSection) {
+    if ("IntersectionObserver" in window) {
+      const reportObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.15,
+      });
+
+      reportObserver.observe(reportSection);
+    } else {
+      reportSection.classList.add("is-visible");
+    }
+  }
 
   if (reportTrack && reportDots.length) {
     const reportCards = Array.from(reportTrack.querySelectorAll(".report-card"));
@@ -453,30 +542,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const showYoutubeSlide = (nextIndex) => {
-    if (!youtubeCards.length) {
-      return;
-    }
-
-    if (nextIndex !== youtubeCurrent) {
-      stopYoutubePlayers();
-    }
-
+  const updateYoutubeCarousel = (nextIndex) => {
     youtubeCurrent = (nextIndex + youtubeCards.length) % youtubeCards.length;
 
     youtubeCards.forEach((card, index) => {
-      const position = (index - youtubeCurrent + youtubeCards.length) % youtubeCards.length;
+      let position = (index - youtubeCurrent + youtubeCards.length) % youtubeCards.length;
+
+      if (position > Math.floor(youtubeCards.length / 2)) {
+        position -= youtubeCards.length;
+      }
+
       const isActive = position === 0;
-      const isVisible = position < 3;
+      const link = card.querySelector(".youtube-card__link");
 
-      card.style.order = String(position);
+      card.dataset.position = String(position);
       card.classList.toggle("is-active", isActive);
-      card.classList.toggle("is-visible", isVisible);
-      card.classList.remove("is-entering");
+      card.classList.add("is-visible");
 
-      if (isVisible) {
-        void card.offsetWidth;
-        card.classList.add("is-entering");
+      if (link) {
+        link.tabIndex = isActive ? 0 : -1;
       }
     });
 
@@ -487,8 +571,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const showYoutubeSlide = (nextIndex) => {
+    if (!youtubeCards.length) {
+      return;
+    }
+
+    const normalizedIndex = (nextIndex + youtubeCards.length) % youtubeCards.length;
+
+    if (normalizedIndex !== youtubeCurrent) {
+      stopYoutubePlayers();
+    }
+
+    updateYoutubeCarousel(normalizedIndex);
+  };
+
   if (youtubeCards.length) {
-    youtubeCards.forEach((card) => {
+    youtubeCards.forEach((card, index) => {
       const link = card.querySelector(".youtube-card__link");
 
       if (!link) {
@@ -497,6 +595,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       link.addEventListener("click", (event) => {
         event.preventDefault();
+
+        if (!card.classList.contains("is-active")) {
+          showYoutubeSlide(index);
+          return;
+        }
 
         const videoId = getYoutubeId(link.dataset.youtubeUrl || "");
 
@@ -532,11 +635,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     youtubeDots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
+        if (index === youtubeCurrent) {
+          return;
+        }
+
         showYoutubeSlide(index);
       });
     });
 
-    showYoutubeSlide(0);
+    updateYoutubeCarousel(0);
   }
 
   syncNavigationMode();
@@ -552,7 +659,79 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==================== SECTION 03 ====================
 
 // ==================== SECTION 04 ====================
+  const storiesSection = document.querySelector(".stories-section");
+
+  if (storiesSection) {
+    if ("IntersectionObserver" in window) {
+      const storiesObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.15,
+      });
+
+      storiesObserver.observe(storiesSection);
+    } else {
+      storiesSection.classList.add("is-visible");
+    }
+  }
 
 // ==================== SECTION 05 ====================
+  const ctaBlocks = document.querySelectorAll(".cta-block");
+
+  if (ctaBlocks.length) {
+    if ("IntersectionObserver" in window) {
+      const ctaObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.22,
+      });
+
+      ctaBlocks.forEach((block) => {
+        ctaObserver.observe(block);
+      });
+    } else {
+      ctaBlocks.forEach((block) => {
+        block.classList.add("is-visible");
+      });
+    }
+  }
 
 // ==================== RESPONSIVE ====================
+
+// ==================== GO TO TOP ====================
+const goToTopButton = document.querySelector("[data-go-to-top]");
+
+if (goToTopButton) {
+  const syncGoToTopState = () => {
+    const isVisible = window.scrollY > 500;
+    goToTopButton.classList.toggle("is-visible", isVisible);
+    goToTopButton.setAttribute("aria-hidden", String(!isVisible));
+    goToTopButton.tabIndex = isVisible ? 0 : -1;
+  };
+
+  goToTopButton.addEventListener("click", () => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    window.scrollTo({
+      top: 0,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  });
+
+  window.addEventListener("scroll", syncGoToTopState, { passive: true });
+  syncGoToTopState();
+}

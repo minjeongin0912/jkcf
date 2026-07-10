@@ -1,4 +1,66 @@
-/* ==================== ROOT ==================== */
+﻿/* ==================== ROOT ==================== */
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff") format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff") format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff") format("woff");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff") format("woff");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
+  font-weight: 900;
+  font-display: swap;
+}
 :root {
   --color-white: #ffffff;
   --color-green: #11b1af;
@@ -7,6 +69,7 @@
   --color-border: #e6ecef;
   --color-muted: #6f7678;
   --font-family-base: "Zen Kaku Gothic New", sans-serif;
+  --font-family-ko: "Escoredream", sans-serif;
   --header-height: 78px;
   --header-height-scrolled: 64px;
   --inner-width: 1500px;
@@ -15,6 +78,13 @@
 /* ==================== BASE ==================== */
 * {
   box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .footer-primary__brand .footer-primary__logo {
+    width: min(58%, 300px);
+    margin: 0 auto;
+  }
 }
 
 html {
@@ -29,6 +99,12 @@ body {
   padding-top: var(--header-height);
   font-family: var(--font-family-base);
   line-height: 1.6;
+}
+
+html[lang="ko"],
+html[lang="ko"] body,
+html[lang="ko"] button {
+  font-family: var(--font-family-ko);
 }
 
 a {
@@ -380,21 +456,29 @@ img {
 }
 
 .publication-visual__label {
-  margin: 64px 0 0;
+  margin: 56px 0 12px;
   color: var(--color-green);
-  font-size: 15px;
-  font-weight: 900;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: 0.12em;
 }
 
 .publication-visual__title {
-  margin: 18px 0 0;
-  color: #111111;
-  font-size: clamp(42px, 3.6vw, 64px);
-  font-weight: 900;
-  line-height: 1.15;
+  margin: 0 0 14px;
+  color: #414345;
+  font-size: clamp(40px, 3.6vw, 60px);
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: 0;
+}
+
+.publication-visual__desc {
+  max-width: 680px;
+  margin: 0;
+  color: #4a555b;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 /* ==================== PUBLICATION SECTION ==================== */
@@ -428,7 +512,7 @@ img {
   margin-bottom: 0;
   color: var(--color-green);
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.18em;
 }
 
@@ -436,7 +520,7 @@ img {
   margin: 14px 0 14px;
   color: #111111;
   font-size: clamp(36px, 3vw, 52px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.25;
 }
 
@@ -463,7 +547,7 @@ img {
   padding-top: 8px;
   color: var(--color-green);
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .publication-item__category {
@@ -482,7 +566,7 @@ img {
   margin: 0;
   color: #111111;
   font-size: 28px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.4;
 }
 
@@ -560,7 +644,7 @@ img {
   padding: 0 22px;
   color: #222222;
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 700;
   border: 1px solid #222222;
   border-radius: 999px;
   transition: color 0.18s ease, background 0.18s ease;
@@ -601,7 +685,7 @@ img {
   min-width: 190px;
   min-height: 48px;
   color: var(--color-white);
-  font-weight: 900;
+  font-weight: 700;
   background: #606060;
   border-radius: 999px;
 }
@@ -618,14 +702,14 @@ img {
   margin: 0 0 10px;
   color: var(--color-muted);
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.15em;
 }
 
 .publication-nav h2 {
   margin: 0 0 16px;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .publication-nav a {
@@ -849,7 +933,25 @@ img {
   }
 
   .language-switcher {
+    display: block;
+  }
+
+  .language-switcher__button {
+    justify-content: center;
+    width: 46px;
+    min-height: 46px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .language-switcher__current,
+  .language-switcher__arrow {
     display: none;
+  }
+
+  .language-switcher__menu {
+    top: calc(100% + 8px);
+    right: 0;
   }
 
   .site-header__menu-button:focus-visible {
@@ -972,7 +1074,7 @@ img {
     align-items: center;
     gap: 16px;
     min-height: auto;
-    padding: 24px 44px 24px 0;
+    padding: 24px 44px 24px 24px;
     color: #28313a;
     font-size: 17px;
     font-weight: 500;
@@ -989,7 +1091,7 @@ img {
   .site-nav__toggle {
     position: absolute;
     top: 18px;
-    right: 0;
+    right: 24px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1008,6 +1110,7 @@ img {
     margin-left: auto;
     color: #101820;
     font-size: 16px;
+    transform: translateX(8px);
   }
 
   .site-nav__item--current > .site-nav__link::after,
@@ -1208,6 +1311,10 @@ img {
 }
 
 @media (max-width: 600px) {
+  .footer-primary__logo {
+    width: min(58%, 300px);
+  }
+
   .site-header__inner {
     width: min(100% - 24px, var(--inner-width));
   }
@@ -1305,7 +1412,11 @@ img {
   }
 
   .publication-visual__title {
-    font-size: 34px;
+    font-size: 36px;
+  }
+
+  .publication-visual__desc {
+    font-size: 14px;
   }
 
   .publication-page__inner {

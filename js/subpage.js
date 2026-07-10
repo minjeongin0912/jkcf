@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const languageMenu = document.querySelector(".language-switcher__menu");
   const languageCurrent = document.querySelector(".language-switcher__current");
   const languageOptions = document.querySelectorAll("[data-lang-option]");
-  const translatableItems = document.querySelectorAll("[data-ja][data-ko]");
   const storageKey = "jkcf-language";
   const availableLanguages = ["ja", "ko"];
 
@@ -195,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.lang = currentLanguage;
 
-    translatableItems.forEach((item) => {
+    document.querySelectorAll("[data-ja][data-ko]").forEach((item) => {
       const text = item.dataset[currentLanguage];
 
       if (text) {

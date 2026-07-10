@@ -1,4 +1,66 @@
-/* ==================== ROOT ==================== */
+﻿/* ==================== ROOT ==================== */
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff") format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff") format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff") format("woff");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff") format("woff");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
+  font-weight: 900;
+  font-display: swap;
+}
 :root {
   --color-white: #ffffff;
   --color-green: #11b1af;
@@ -7,6 +69,7 @@
   --color-border: #e6ecef;
   --color-muted: #6f7678;
   --font-family-base: "Zen Kaku Gothic New", sans-serif;
+  --font-family-ko: "Escoredream", sans-serif;
   --header-height: 78px;
   --header-height-scrolled: 64px;
   --inner-width: 1500px;
@@ -15,6 +78,13 @@
 /* ==================== BASE ==================== */
 * {
   box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .footer-primary__brand .footer-primary__logo {
+    width: min(58%, 300px);
+    margin: 0 auto;
+  }
 }
 
 html {
@@ -29,6 +99,12 @@ body {
   padding-top: var(--header-height);
   font-family: var(--font-family-base);
   color: var(--color-text);
+}
+
+html[lang="ko"],
+html[lang="ko"] body,
+html[lang="ko"] button {
+  font-family: var(--font-family-ko);
 }
 
 a {
@@ -385,20 +461,28 @@ img {
 }
 
 .sub-visual__label {
-  margin: 64px 0 18px;
+  margin: 56px 0 12px;
   color: var(--color-green);
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .sub-visual__title {
-  margin: 0;
-  color: #111111;
-  font-size: clamp(38px, 3.15vw, 58px);
+  margin: 0 0 14px;
+  color: #414345;
+  font-size: clamp(40px, 3.6vw, 60px);
   font-weight: 700;
-  line-height: 1.28;
+  line-height: 1.2;
   letter-spacing: 0;
+}
+
+.sub-visual__desc {
+  max-width: 680px;
+  margin: 0;
+  color: #4a555b;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 /* ==================== CONTENTS ==================== */
@@ -441,7 +525,7 @@ img {
   margin: 9px 0 0;
   color: #111111;
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -457,7 +541,7 @@ img {
   margin: 0;
   color: #111111;
   font-size: clamp(30px, 2.4vw, 42px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.35;
   letter-spacing: 0;
 }
@@ -471,7 +555,7 @@ img {
   margin: 0;
   color: #202020;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 2.1;
   letter-spacing: 0;
 }
@@ -482,7 +566,7 @@ img {
 
 .about-text__signature {
   padding-top: 14px;
-  font-weight: 700;
+  font-weight: 500;
   text-align: right;
 }
 
@@ -520,13 +604,13 @@ img {
 
 .about-timeline dt,
 .member-table dt {
-  font-weight: 900;
+  font-weight: 700;
   background: #f6f7f7;
 }
 
 .about-timeline dd,
 .member-table dd {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .member-list {
@@ -539,7 +623,7 @@ img {
   margin: 0 0 14px;
   color: #111111;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.4;
 }
 
@@ -554,7 +638,7 @@ img {
   margin: 0;
   color: #202020;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -603,7 +687,7 @@ img {
   margin: 0 0 18px;
   color: #111111;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.45;
 }
 
@@ -618,7 +702,7 @@ img {
 .disclosure-card a {
   color: #202020;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -643,7 +727,7 @@ img {
   margin: 0 0 22px;
   color: #111111;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.3;
 }
 
@@ -974,7 +1058,25 @@ img {
     }
 
   .language-switcher {
+      display: block;
+    }
+
+  .language-switcher__button {
+      justify-content: center;
+      width: 46px;
+      min-height: 46px;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+  .language-switcher__current,
+    .language-switcher__arrow {
       display: none;
+    }
+
+  .language-switcher__menu {
+      top: calc(100% + 8px);
+      right: 0;
     }
 
   .site-header__menu-button:focus-visible {
@@ -1099,7 +1201,7 @@ img {
       align-items: center;
       gap: 16px;
       min-height: auto;
-      padding: 24px 44px 24px 0;
+      padding: 24px 44px 24px 24px;
       color: #28313a;
       font-size: 17px;
       font-weight: 500;
@@ -1116,7 +1218,7 @@ img {
   .site-nav__toggle {
       position: absolute;
       top: 18px;
-      right: 0;
+      right: 24px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1135,6 +1237,7 @@ img {
       margin-left: auto;
       color: #101820;
       font-size: 16px;
+      transform: translateX(8px);
     }
 
   .site-nav__item--current > .site-nav__link::after,
@@ -1365,6 +1468,10 @@ img {
 }
 
 @media (max-width: 600px) {
+  .footer-primary__logo {
+    width: min(58%, 300px);
+  }
+
   .site-header__inner {
       width: min(100% - 24px, var(--inner-width));
     }
@@ -1374,8 +1481,9 @@ img {
     }
 
   .language-switcher__button {
-      min-height: 38px;
-      padding: 0 10px;
+      width: 42px;
+      min-height: 42px;
+      padding: 0;
     }
 
   .language-switcher__icon {
@@ -1485,7 +1593,11 @@ img {
     }
 
   .sub-visual__title {
-      font-size: 34px;
+      font-size: 36px;
+    }
+
+  .sub-visual__desc {
+      font-size: 14px;
     }
 
   .about-page__inner {
@@ -1570,7 +1682,7 @@ img {
 
   .language-switcher__button {
       gap: 6px;
-      padding: 0 8px;
+      padding: 0;
     }
 
   .language-switcher__current {
